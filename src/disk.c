@@ -22,6 +22,7 @@
  */
 
 #include "lime.h"
+#include "disk.h"
 
 ssize_t write_vaddr_disk(void *, size_t);
 

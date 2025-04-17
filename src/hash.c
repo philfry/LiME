@@ -23,6 +23,8 @@
 
 
 #include "lime.h"
+#include "hash.h"
+#include "disk.h"
 
 // External
 extern ssize_t write_vaddr_tcp(void *, size_t);
@@ -30,8 +32,6 @@ extern int setup_tcp(void);
 extern void cleanup_tcp(void);
 
 extern ssize_t write_vaddr_disk(void *, size_t);
-extern int setup_disk(char *, int);
-extern void cleanup_disk(void);
 
 static u8 *output;
 static int digestsize;

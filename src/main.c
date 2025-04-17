@@ -22,6 +22,11 @@
  */
 
 #include "lime.h"
+#include "disk.h"
+#include "hash.h"
+#ifdef LIME_SUPPORTS_DEFLATE
+#include "deflate.h"
+#endif
 
 // This file
 static ssize_t write_lime_header(struct resource *);
@@ -40,21 +45,6 @@ extern int setup_tcp(void);
 extern void cleanup_tcp(void);
 
 extern ssize_t write_vaddr_disk(void *, size_t);
-extern int setup_disk(char *, int);
-extern void cleanup_disk(void);
-
-extern int ldigest_init(void);
-extern int ldigest_update(void *, size_t);
-extern int ldigest_final(void);
-extern int ldigest_write_tcp(void);
-extern int ldigest_write_disk(void);
-extern int ldigest_clean(void);
-
-#ifdef LIME_SUPPORTS_DEFLATE
-extern int deflate_begin_stream(void *, size_t);
-extern int deflate_end_stream(void);
-extern ssize_t deflate(const void *, size_t);
-#endif
 
 static char * format = 0;
 static int mode = 0;
